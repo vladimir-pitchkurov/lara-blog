@@ -10,26 +10,28 @@ use Illuminate\Http\Request;
 class PostListController extends Controller
 {
     public function show(){
-        echo 'PostListController @ show - method';
+        /*echo 'PostListController @ show - method';
         $a = User::all();
         $b = Post::all();
-        $c = Comment::all();
+        $c = Comment::all();*/
         /*foreach ($c as $d){
             echo '<p>title = '.$d->title.'</p>';
         }
         echo '<br>id= '.$c[0]->id;*/
         //dd($c);
 
-        $z = Post::find(1)->comments;
+        /*$z = Post::find(1)->comments;
 
-        $x = User::find(2)->posts;
+        $x = User::find(2)->posts()->limit(2)->get();
 
         $q = Post::find(1)->user;
 
         dump($x);
         dump($z);
-        dump($q);
+        dump($q);*/
+        $posts = Post::all();
+        /*dd($posts);*/
 
-        return;
+        return view('blog.test', ['posts'=>$posts]);
     }
 }
